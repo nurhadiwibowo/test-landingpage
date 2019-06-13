@@ -1,33 +1,286 @@
+/* Blue: ​#007bc1
+Dark blue: ​#004a75
+Orange: ​#ff8000
+Dark orange: ​#cc6600
+Smoke Grey: ​rgb(229, 229, 229) */
+
+*{
+  padding: 0;
+  margin: 0;
+  font-size: 14px
+}
+html{
+  scroll-behavior: smooth;
+}
+.bg-app{
+  display: flex;
+  margin: 0 auto;
+  max-width: 1366px;
+}
 .App {
+  width: 100%;
+}
+.notification-panel{
+  position: static;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(229, 229, 229);
+  transition: margin ease-out 1s,transform ease-out 1s;
+  width: 100%;
+  margin: 0 0 0 0;
+  z-index: 3;
+}
+.hide{
+  margin: 0 0 -60px 0;
+  transform: translateY(-100%);
+}
+.notification-panel-content{
+  display: flex;
+  align-items: center;
+  max-width: 720px;
+}
+.notification-panel-text{
+  font-size: 0.9rem;
+  width: 90%;
+  padding: 0 4px 0 0;
+}
+.notification-panel-text > a{
+  text-decoration-line: none;
+}
+.notification-panel-button{
+  height: 2.5rem;
+  width: 4.5rem;
+  border: 0;
+  color: white;
+  background-color: #007bc1;
+  border-radius: 4px;
+}
+.hero-shot{
+  height: 70vh;
+  max-width: inherit;
+  padding: 24px;
+  background: linear-gradient(rgba(0,74,117,0.7),rgba(0,74,117,0.7)), url('./assets/img/jumbotron.jpg'); /* W3C */
+  background-size: auto; 
+}
+
+.hero-shot-content{
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  z-index: 1;
+}
+.hero-shot-content > img{
+  position: absolute;
+  top:10px;
+  left:10px;
+  height: 60px;
+}
+.hero-shot-content > span {
+  padding: 0 0 8px 0;
+  font-size: 2rem;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.jumbo-skills{
+  font-weight: 600;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.jumbo-cta{
+  font-size: 1.4rem;
+  text-align: center;
+}
+.hero-shot-content > button {
+  font-weight: 800;
+  color: white;
+  height: 40px;
+  width: 200px;
+  margin-top: 24px;
+  background-color: transparent;
+  border: solid 2px white;
+  border-radius: 4px;
+}
+.hero-shot-content > button:hover {
+  color: #004a75;
+  background-color: white;
+}
+.highlight-panel{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 42px 24px;
+  max-width: inherit;
+  background-color: rgba(229,229,229,1);
+}
+.highlight-panel::after{
+  background-color: rgb(229, 229, 229);
+}
+.highlight-panel > span {
+  font-size: 2rem;
+}
+.highlight-panel > p {
+  text-align: center;
+  font-size: 1.4rem;
+  padding-top: 1rem;
+}
+.card-section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 12px 3rem;
+}
+.card{
+  flex: 25%;
+  padding: 1.5rem 2rem;
+  margin: 10px;
+  border: solid 2px lightgrey;
+}
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+.card-header > span {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.fa-icon{
+  color:#A6A6A6;
+  font-size: 2rem;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  background-color: #004a75;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.newsletter-panel{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: -12rem;
+  left: 0;
+  padding: 2rem 2.8rem;
+  height: 8rem;
+  max-width: 420px;
+  background-color: rgba(0, 123, 193,0.9);
+  transition: bottom 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.newsletter-panel-mounting{
+  bottom: 0rem;
+}
+.newsletter-content{
+  position: relative;
+}
+.close-button{
+  position: absolute;
+  top:-18px;
+  right: -28px;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 0.1;
+  color: white;
+  font-weight: 800;
+  background-color: transparent;
+  border: solid 2px white;
+}
+.newsletter-content > span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color:white;
+}
+.newsletter-content > p {
+  font-size: 1rem;
+  color:white;
+  margin: 6px 0 12px 0;
+}
+.newsletter-content > input {
+  font-size: 1rem;
+  color:white;
+  width: 65%;
+  padding: 0 8px;
+  margin: 0 12px 0 0;
+  height: 1.5rem;
+}
+.newsletter-cta{
+  font-weight: 600;
+  color: white;
+  background-color: #ff8000;
+  height: 1.8rem;
+  width: 8rem;
+  border: 0;
+}
+@media screen and (max-width: 1092px) {
+  .card{
+    flex: 23%;
   }
-  to {
-    transform: rotate(360deg);
+  .card-section{
+    padding: 0
+  }
+}
+@media screen and (max-width: 960px) {
+  .notification-panel-content{
+    padding: 20px 20px;
+  } 
+  .notification-panel-text{
+    padding: 0 1rem 0 0;
+  }
+  .highlight-panel{
+    padding: 42px 32px;
+  }
+  .card{
+    flex: 28%;
+  }
+}
+
+@media screen and (max-width: 580px){
+  .card{
+    flex: 25%;
+    padding: .5rem 1rem;
+    margin: 8px;
+    border: solid 2px lightgrey;
+  }
+  .fa-icon{
+    color:#A6A6A6;
+    font-size: 1.5rem;
+  }
+  .card-header > span {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .hero-shot{
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 479px){
+  .notification-panel{
+    height: 120px;
+  }
+  .notification-panel-content{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .notification-panel-button{
+    margin-top: 8px;
+  }
+  .hide{
+    margin: 0 0 -120px 0;
+    transform: translateY(-100%);
+  }
+  .card{
+    flex: 100%;
+    padding: .5rem 1rem;
+    margin: 8px;
+    border: solid 2px lightgrey;
   }
 }
