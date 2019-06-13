@@ -165,13 +165,14 @@ html{
   position: fixed;
   display: flex;
   flex-direction: column;
-  bottom: -12rem;
+  bottom: -14rem;
   left: 0;
   padding: 2rem 2.8rem;
   height: 8rem;
   max-width: 420px;
   background-color: rgba(0, 123, 193,0.9);
   transition: bottom 1s;
+  z-index: 10;
 }
 
 .newsletter-panel-mounting{
@@ -204,7 +205,7 @@ html{
   color:white;
   margin: 6px 0 12px 0;
 }
-.newsletter-content > input {
+.newsletter-cta > input {
   font-size: 1rem;
   color:white;
   width: 65%;
@@ -212,7 +213,7 @@ html{
   margin: 0 12px 0 0;
   height: 1.5rem;
 }
-.newsletter-cta{
+.newsletter-cta-button{
   font-weight: 600;
   color: white;
   background-color: #ff8000;
@@ -262,6 +263,15 @@ html{
     height: 100vh;
   }
 }
+@media screen and (max-width: 500px){
+  .newsletter-panel{
+    padding: 1rem 1.8rem;
+  }
+  .close-button{
+    top:-4px;
+    right: -12px;
+  }
+}
 @media screen and (max-width: 479px){
   .notification-panel{
     height: 120px;
@@ -282,5 +292,23 @@ html{
     padding: .5rem 1rem;
     margin: 8px;
     border: solid 2px lightgrey;
+  }
+  .newsletter-panel{
+    height: 10.5rem;
+  }
+  .newsletter-cta{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 4.1rem;
+  }
+  .newsletter-cta > input {
+    width: 99%;
+    margin: 0;
+    padding: 0;
+  }
+  .newsletter-cta-button{
+    width: 100%
   }
 }

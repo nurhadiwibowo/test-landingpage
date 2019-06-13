@@ -147,8 +147,10 @@ export class App extends React.Component {
                 I write articles related to web technologies, such as design trends, development
                 tools, UI/UX case studies and reviews, and more. Sign to my newsletter to get them all.
               </p>
-              <input type="text" placeholder="Email address ..."/>
-              <button className="newsletter-cta">Count me in!</button>
+              <div className="newsletter-cta">
+                <input type="text" placeholder="Email address ..."/>
+                <button className="newsletter-cta-button">Count me in!</button>
+              </div>
             </div>
           </div>
           <div className="footer">
