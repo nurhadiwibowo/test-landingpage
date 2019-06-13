@@ -59,12 +59,11 @@ export class App extends React.Component {
       } else if (window !==0){
         element.style.position = "fixed"
       }
-    }
-    window.onscroll = function(){
       if(window.pageYOffset >= 0){
         document.getElementById("newsletter-panel").classList.add("newsletter-panel-mounting")
       }
     }
+    
   }
   handleClose = () =>{
     // this.setState({
