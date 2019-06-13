@@ -8,7 +8,7 @@ import { faComments,
   faSlidersH,
   faChartLine } from '@fortawesome/free-solid-svg-icons'
 import {faCopyright} from '@fortawesome/free-regular-svg-icons'
-import { CookiesProvider } from 'react-cookie'
+//import { CookiesProvider } from 'react-cookie'
   const datas = [
     {
       title: "Consult",
@@ -157,8 +157,8 @@ export class App extends React.Component {
           </div>
         </div>
       </div>
-    );
+      );
+    }
   }
-}
 
 export default App;
