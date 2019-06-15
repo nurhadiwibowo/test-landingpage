@@ -30,7 +30,10 @@ html{
   transition: margin ease-out 1s,transform ease-out 1s;
   width: 100%;
   margin: 0 0 0 0;
-  z-index: 3;
+  -webkit-box-shadow: 1px 3px 14px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 3px 14px -3px rgba(0,0,0,0.75);
+  box-shadow: 1px 3px 14px -3px rgba(0,0,0,0.75);
+    z-index: 3;
 }
 .hide{
   margin: 0 0 -60px 0;
@@ -168,8 +171,8 @@ html{
   bottom: -14rem;
   left: 0;
   padding: 2rem 2.8rem;
-  height: 8rem;
-  max-width: 420px;
+  height: 7rem;
+  max-width: 640px;
   background-color: rgba(0, 123, 193,0.9);
   transition: bottom 1s;
   z-index: 10;
@@ -177,6 +180,9 @@ html{
 
 .newsletter-panel-mounting{
   bottom: 0rem;
+}
+.newsletter-panel-unmount{
+  bottom: -14rem;
 }
 .newsletter-content{
   position: relative;

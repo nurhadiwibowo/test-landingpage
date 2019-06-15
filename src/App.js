@@ -8,7 +8,7 @@ import { faComments,
   faSlidersH,
   faChartLine } from '@fortawesome/free-solid-svg-icons'
 import {faCopyright} from '@fortawesome/free-regular-svg-icons'
-//import { CookiesProvider } from 'react-cookie'
+import Cookies from 'universal-cookie'
   const datas = [
     {
       title: "Consult",
@@ -42,33 +42,30 @@ import {faCopyright} from '@fortawesome/free-regular-svg-icons'
     }
   ]
 
-
+  const cookies = new Cookies();
 export class App extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  
-  //   this.state = {
-  //      cookies : true //true = Show
-  //   }
-  // }
+
   componentDidMount(){
+    if(cookies.get("name")){
+      document.getElementById("newsletter-panel").style.display = "none"
+    }
     let element = document.getElementById("cookie-panel")
     window.onscroll = function(){
-      if(window.pageYOffset <= 0) {
+      console.log("tinggi",window.pageYOffset)
+      console.log("total", document.body.clientHeight)
+      console.log("tinggi 1 skrin", window.innerHeight)
+      if(window.pageYOffset <=0) {
         element.style.position = "static"
       } else if (window !==0){
         element.style.position = "fixed"
       }
-      if(window.pageYOffset >= 0){
+      if(window.pageYOffset >= (document.body.clientHeight-window.innerHeight)/3){
         document.getElementById("newsletter-panel").classList.add("newsletter-panel-mounting")
       }
     }
     
   }
   handleClose = () =>{
-    // this.setState({
-    //   cookies: !this.state.cookies
-    // })
     let element = document.getElementById("cookie-panel")
     element.classList.toggle("hide")
     window.scrollTo(0,0)
@@ -76,9 +73,14 @@ export class App extends React.Component {
       element.style.display = "none"
     }, 1300)
   }
-  newsletterClose = (event) => {
-    let element = document.getElementById("newsletter-panel")
-    element.style.display = "none"
+  newsletterClose = () => {
+    let element =document.getElementById("newsletter-panel")
+    element.classList.add("newsletter-panel-unmount")
+    element.classList.remove("newsletter-panel-mountinga")
+    cookies.set("name","clicked",{
+      path:'/',
+      expires: new Date(Date.now()+(10*60*1000))
+    })
   }
   componentWillUnmount() {
     window.onscroll = null;
